@@ -1,0 +1,173 @@
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url "index:index" %}">主页</a></li>
+        <li class="breadcrumb-item"><a href="project">项目管理</a></li>
+        <li class="breadcrumb-item active" aria-current="page">新增项目</li>
+    </ol>
+</nav>
+<form>
+    <div class="form-row ">
+        <div class="form-group col-md-3 ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">课题名称</span> </div>
+                <input type="text" class="form-control" placeholder="课题名称" aria-label="projectname" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="form-group col-md-3 ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">申报单位</span> </div>
+                <input type="text" class="form-control" placeholder="申报单位" aria-label="applicant" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="form-group col-md-3 ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">申报年度</span> </div>
+                <input type="text" class="form-control" placeholder="申报年度" aria-label="year" aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+        <div class="form-group col-md-3 ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">项目分类</span> </div>
+                <input type="text" class="form-control" placeholder="项目分类" aria-label="sort" aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class='col-sm-3'>
+            <div class="form-group"> 
+                
+                <!--指定 date标记-->
+                <div class='input-group date' id='datetimeStart'>
+                    <label>选择开始时间：</label>
+                    <span class="input-group-addon"> <span class="input-group-glyphicon glyphicon-calendar"></span> </span>
+                    <input type='text' class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class='col-sm-3'>
+            <div class="form-group"> 
+                
+                <!--指定 date标记-->
+                <div class='input-group date' id='datetimeEnd'>
+                    <label>选择结束时间：</label>
+                    <span class="input-group-addon"> <span class="input-group-glyphicon glyphicon-calendar"></span> </span>
+                    <input type='text' class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3 ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">申请资助</span> </div>
+                <input type="text" class="form-control" placeholder="申请资助" aria-label="leader" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="form-group col-md-3 ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">自筹经费</span> </div>
+                <input type="text" class="form-control" placeholder="自筹经费" aria-label="leader" aria-describedby="basic-addon1">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $("#datetimeStart").datetimepicker({
+        format: 'yyyy-mm-dd',
+        minView:'month',
+        language: 'zh-CN',
+        autoclose:true,
+      
+    }).on("click",function(){
+        $("#datetimeStart").datetimepicker("setEndDate",$("#datetimeEnd").val())
+    });
+    $("#datetimeEnd").datetimepicker({
+        format: 'yyyy-mm-dd',
+        minView:'month',
+        language: 'zh-CN',
+        autoclose:true,
+        startDate:new Date()
+    }).on("click",function(){
+        $("#datetimeEnd").datetimepicker("setStartDate",$("#datetimeStart".val()))
+    });
+</script>
+    <div class="form-row ">
+    <div class="form-group col-md-3 ">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">专业领域</span> </div>
+            <input type="text" class="form-control" placeholder="课题名称" aria-label="projectname" aria-describedby="basic-addon1">
+        </div>
+    </div>
+    <div class="form-group col-md-3 ">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">依托工程</span> </div>
+            <input type="text" class="form-control" placeholder="申报单位" aria-label="applicant" aria-describedby="basic-addon1">
+        </div>
+    </div>
+    <div class="form-group col-md-3 ">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">课题负责人</span> </div>
+            <input type="text" class="form-control" placeholder="课题负责人" aria-label="leader" aria-describedby="basic-addon1">
+        </div>
+    </div>
+    <div class="form-group col-md-3 ">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">参与人数</span> </div>
+            <input type="text" class="form-control" placeholder="课题负责人" aria-label="leader" aria-describedby="basic-addon1">
+        </div>
+    </div>
+    </div>
+
+    <div class="form-row ">
+        <div class="form-group col ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend"> 
+                    <span class="input-group-text" >
+                        目的
+                    </span> 
+                </div>
+                <textarea class="form-control" placeholder="目的"  aria-label="With textarea">
+                </textarea>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+
+    <div class="form-row ">
+        <div class="form-group col ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend"> 
+                    <span class="input-group-text" >
+                        组织实施方式
+                    </span> 
+                </div>
+                <textarea class="form-control" placeholder="组织实施方式"  aria-label="With textarea">
+                </textarea>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-row ">
+        <div class="form-group col ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend"> 
+                    <span class="input-group-text" >
+                        创新点和关键技术
+                    </span> 
+                </div>
+                <textarea class="form-control" placeholder=" 创新点和关键技术"  aria-label="With textarea">
+                </textarea>
+            </div>
+        </div>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">保存</button>
+    <button type="submit" class="btn btn-primary">提交</button>
+</form>

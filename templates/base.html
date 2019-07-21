@@ -1,0 +1,76 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>{% block title %}    {% endblock%}</title>
+<meta name="description" content="中国电建集团河南工程有限公司科技创新管理系统" />
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="3Fa_UkjxDcwXjGjkTfvo54R1Jv5kOFYL30C-5g5aS5g" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" >
+<link href="{% static 'css/styles.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet" type="text/css">
+<!--<link href="{% static 'todolist/css/layui.css' %}" rel="stylesheet" type="text/css">-->
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}" ></script>
+<script src="{% static 'js/popper.min.js' %}" ></script>
+<script src="{% static 'js/bootstrap-4.3.1.js' %}" ></script>
+<script src="{% static 'js/bootstrap-datetimepicker.min.js' %}" ></script>
+<script src="{% static 'js/bootstrap-datetimepicker.zh-CN.js' %}" ></script>
+
+
+<link href="{% static 'images/hisci.jpg' %}" rel="shortcut icon">
+<!--<script src="{% static 'todolist/js/layui.js' %}" ></script>-->
+</head>
+<body>
+<div id="container-fluid">
+<div class="container-fluid center "> 
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-light bg-light  navbar-expand-sm  center">
+        <div class="container-fluid"> <a class="navbar-brand"  data-dl-root="true" href="{% url "index:index" %}">科技创新管理系统</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse center" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item" id="nav_getting_started"> <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <<<>>> </a> </li>
+                    {% if user.is_authenticated %} 
+                    <li class="nav-item" id="nav_getting_started"> <a class="nav-link"  data-dl-root="true" href="{% url 'project_list' %}">项目管理</a> </li>
+                    <li class="nav-item" id="nav_layout"> <a class="nav-link"  data-dl-root="true" href="contract">合同管理</a> </li>
+                    <li class="nav-item" id="nav_content"> <a class="nav-link"  data-dl-root="true" href="excute">执行管理</a> </li>
+                    <li class="nav-item" id="nav_components"> <a class="nav-link"  data-dl-root="true" href="gongfa">工法管理</a> </li>
+                    <li class="nav-item" id="nav_utilities"> <a class="nav-link"  data-dl-root="true" href="patent">专利管理</a> </li>
+                    <li class="nav-item" id="nav_extend"> <a class="nav-link"  data-dl-root="true" href="hitech">高企管理</a> </li>
+                    <li class="nav-item" id="nav_examples"> <a class="nav-link"  data-dl-root="true" href="knowledge">知识库</a> </li>
+                    <li class="nav-item" id="nav_about"> <a class="nav-link"  data-dl-root="true" href="changelog.html">退出登录</a> </li>
+                    <li class="nav-item" id="nav_about"> <a class="nav-link"  data-dl-root="true" href="about.html">修改密码</a> </li>
+                    {% else %}
+                    <li class="nav-item" id="nav_about"> <a class="nav-link"  data-dl-root="true" href="changelog.html">登录</a> </li>
+                    {% endif %} 
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="header"></div>
+
+    <div class="row">
+
+        {% if user.is_authenticated %}
+            {% block content %}    
+            {% endblock content %}
+        {% else %}
+            {% block login %}    
+            {% endblock login %}
+        {% endif %} 
+    </div>
+
+            
+<div style="padding-top: 80px"></div>
+    <footer class="footer  fixed-bottom mt-auto py-3 " id="footer">
+        <div class="container center">
+            <div class="text-muted"> © 2019  DZYUAN STUDIO   科技创新管理系统由<a href="https://www.djangoproject.com/" target="_blank">django</a> 和 <a href="https://getbootstrap.com/" target="_blank">bootstrap 4</a> 构建</div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

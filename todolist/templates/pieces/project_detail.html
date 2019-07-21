@@ -1,0 +1,21 @@
+<div class="col-12 col-lg-10">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url "index:index" %}">主页</a></li>
+            <li class="breadcrumb-item"><a href="project">项目管理</a></li>
+            <li class="breadcrumb-item active" aria-current="page">项目详情</li>
+        </ol>
+    </nav>
+    <div class="container-fluid">  
+        
+        <form method="POST" >
+            {% csrf_token %}
+             {% for field  in project %}
+            <h2>123{{ field.name}}:{{ field }}</h2>
+              {% endfor  %}
+           
+        </form>
+    </div>
+</div>
+   

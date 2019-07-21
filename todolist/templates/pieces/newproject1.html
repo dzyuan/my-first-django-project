@@ -1,0 +1,28 @@
+<div class="col-12 col-lg-10">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url "index:index" %}">主页</a></li>
+            <li class="breadcrumb-item"><a href="project">项目管理</a></li>
+            <li class="breadcrumb-item active" aria-current="page">新增项目</li>
+        </ol>
+    </nav>
+    <div class="container-fluid">  
+        
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            {{ projectform.as_p }}
+            {% for project in prjectForm %}
+                <div class="form-row ">
+                 {# 拿到数据字段的verbose_name,没有就默认显示字段名 #}
+                    <label class=" control-label">{{ projectform.label }}</label>
+                   <div class="col-md" style="position: relative;">{{ projectform }}</div>
+                </div>
+            {% endfor %}
+
+            <div class="col-md-2 col-md-offset-10">
+                <input type="submit" value="提交" class="btn-primary">
+            </div>
+        </form>
+    </div>
+</div>

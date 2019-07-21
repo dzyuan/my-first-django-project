@@ -1,0 +1,48 @@
+{% extends "todolist/base.html" %}
+{%load static%}
+{% block context %}
+
+<div class="row">
+    <div class="col-12 d-block d-lg-none">
+        <div class="nav nav-pills d-flex justify-content-center" role="tablist">
+            <a class="nav-link active show" href="#tab_introducation"  role="tab" data-toggle="pill">概览</a>
+            <a class="nav-link" href="#tab_download"  role="tab" data-toggle="pill">下载</a>
+            <a class="nav-link" href="#tab_contents"  role="tab" data-toggle="pill">内容</a>
+            <a class="nav-link" href="#tab_build_tools"  role="tab" data-toggle="pill">构建工具</a>
+            <a class="nav-link" href="#tab_browsers_and_devices"  role="tab" data-toggle="pill">兼容性</a>
+            <a class="nav-link" href="#tab_javascript"  role="tab" data-toggle="pill">Javascript</a>
+            <a class="nav-link" href="#tab_theming"  role="tab" data-toggle="pill">自定义主题</a>
+            <a class="nav-link" href="#tab_webpack"  role="tab" data-toggle="pill">Webpack</a>
+            <a class="nav-link" href="#tab_accessibility"  role="tab" data-toggle="pill">无障碍访问</a>
+        </div>
+    </div>
+    <div class="col-2 d-lg-block d-none">
+        <div class="nav nav-pills flex-column" role="tablist">
+            <a class="nav-link active show" href="#tab_introducation"  role="tab" data-toggle="pill">概览</a>
+            <a class="nav-link" href="#tab_download"  role="tab" data-toggle="pill">下载</a>
+            <a class="nav-link" href="#tab_contents"  role="tab" data-toggle="pill">内容</a>
+            <a class="nav-link" href="#tab_build_tools"  role="tab" data-toggle="pill">构建工具</a>
+            <a class="nav-link" href="#tab_browsers_and_devices"  role="tab" data-toggle="pill">兼容性</a>
+            <a class="nav-link" href="#tab_javascript"  role="tab" data-toggle="pill">Javascript</a>
+            <a class="nav-link" href="#tab_theming"  role="tab" data-toggle="pill">自定义主题</a>
+            <a class="nav-link" href="#tab_webpack"  role="tab" data-toggle="pill">Webpack</a>
+            <a class="nav-link" href="#tab_accessibility"  role="tab" data-toggle="pill">无障碍访问</a>
+        </div>
+    </div>
+    <div class="col-12 col-lg-10">
+        <div class="tab-content" role="tabpanel">
+            <div role="tabpanel" class="tab-pane  active" id="tab_introducation"><div id="tpl_introducation"></div></div>
+            <div role="tabpanel" class="tab-pane" id="tab_accessibility"><div id="tpl_accessibility"></div></div>
+            <div role="tabpanel" class="tab-pane" id="tab_browsers_and_devices"><div id="tpl_browsers_and_devices"></div></div>
+            <div role="tabpanel" class="tab-pane" id="tab_build_tools"><div id="tpl_build_tools"></div></div>
+            <div role="tabpanel" class="tab-pane" id="tab_contents"><div id="tpl_contents"></div></div>
+            <div role="tabpanel" class="tab-pane" id="tab_javascript"><div id="tpl_javascript"></div></div>
+            <div role="tabpanel" class="tab-pane" id="tab_download"><div id="tpl_download"></div></div>
+            <div role="tabpanel" class="tab-pane" id="tab_theming"><div id="tpl_theming"></div></div>
+            <div role="tabpanel" class="tab-pane" id="tab_webpack"><div id="tpl_webpack"></div></div>
+        </div>
+    </div>
+</div>   
+            <div style="padding-top: 80px"></div>
+
+            {% endblock %}

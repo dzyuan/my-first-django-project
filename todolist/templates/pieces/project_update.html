@@ -1,0 +1,20 @@
+<div class="col-12 col-lg-10">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url "index:index" %}">主页</a></li>
+            <li class="breadcrumb-item"><a href="project">项目管理</a></li>
+            <li class="breadcrumb-item active" aria-current="page">修改项目</li>
+        </ol>
+    </nav>
+    <div class="container-fluid">  
+        
+        <form method="POST" >
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+                <input type="submit" value="保存" class="btn-primary">
+           
+        </form>
+    </div>
+</div>

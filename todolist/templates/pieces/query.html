@@ -1,0 +1,35 @@
+<!-- Example single button -->
+<div class="col-12 col-lg-10">
+    
+   
+  
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url "index:index" %}">主页</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'project_list' %}">项目管理</a></li>
+        <li class="breadcrumb-item active" aria-current="page">项目查询</li>
+      </ol>
+    </nav>
+          
+    
+
+      
+				
+					<form class="form-inline" method="GET" action="{% url 'project_list' %}">
+						<input type="text"   class="form-control" placeholder="项目信息..." name="q" required="">
+					<div class="input-group-append">
+            <button class="btn btn-outline-secondary"  type="submit" >查询</button>
+          </div>
+					</form>
+	
+
+   
+    
+
+    {% include "pieces/table.html" %}
+   
+       
+ </div>
+
+
+

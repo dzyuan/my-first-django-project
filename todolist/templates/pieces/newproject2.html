@@ -1,0 +1,27 @@
+<div class="col-12 col-lg-10">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url "index:index" %}">主页</a></li>
+            <li class="breadcrumb-item"><a href="project">项目管理</a></li>
+            <li class="breadcrumb-item active" aria-current="page">新增项目</li>
+        </ol>
+    </nav>
+    <div class="container-fluid">  
+        
+       <form method="post" >
+            {% csrf_token %}
+            {% load widget_tweaks %}
+
+            {% for field in form %}
+                <div class="form-group  {% if field.errors %}alert alert-danger{% endif %}">
+                    {{ field.errors }}
+                   <div  class="float-left"> {{ field.label_tag }} </div>
+                    {% render_field field class="form-control" %}
+                </div>
+                {% endfor %}
+
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+</div>

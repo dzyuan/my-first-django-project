@@ -1,0 +1,100 @@
+
+      <div class=table-responsive">
+            <table class="table text-nowrap table-sm table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th> 序号 </th>
+                        <th> 年度 </th>
+                        <th> 项目名称 </th>
+                        <th> 项目编号 </th>
+                        <th> 项目分类</th>
+                        <th> 申报单位</th>
+                        <th> 申请资助 </th>
+                        <th> 自筹经费 </th>
+                        <th> 总预算 </th>
+                        <th> 负责人 </th>
+                        <th> 参与人数 </th>
+                        <th> 开始时间 </th>
+                        <th> 完成时间 </th>
+                       
+                        <th> 状态 </th>
+                        <th> 操作 </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                {% for project in projectlist %}
+
+
+                    <tr>
+                        <td>  {{project.id}}</td>
+                        <td>  {{ project.get_year_display  }}</td>
+                        <td>  {{project.projectname}} </td>
+                        <td>  {{project.projectid}} </td>
+                        <td>  {{ project.get_sort_display}}</td>
+                        <td>  {{project.applicant_branch}} </td>
+                        <td>  {{project.applybudget}} </td>
+                        <td>  {{project.selfbudget}}</td>
+                        <td>  {{project.totalbudget}} ... </td>
+                        <td>  {{project.leader}}</td>
+                        <td>  {{project.personnumber}}</td>
+                        
+                        <td>  {{project.start_date}} </td>
+                        <td>  {{project.complete_date}} </td>
+                                            
+                       
+                        <td>  {{project.get_status_display}} </td>
+
+                        <td>  修改|<a href="{% url "project_delete" project.id%}">删除</a>|查看|导出 </td>
+
+                    </tr>
+                {% endfor %}
+                    
+                        
+
+                           
+
+
+
+                        
+                </tbody>
+            </table>
+
+
+<div>
+        <nav id="pc_pagination" class="text-center">
+        
+        
+         {% if projectlist.has_other_pages %}
+                          
+                                <ul class="pagination pagination-md">
+                                    {% if projectlist.has_previous %}
+                                        <li  class="page-item"><a class="page-link" href="?page={{ projectlist.previous_page_number }}">Prev</a></li>
+                                    {% else %}
+                                        <li class="disabled"></li>
+                                    {% endif %}
+                                        
+                                    {% for pages in projectlist.paginator.page_range %}
+                                        {% if projectlist.number == pages %}
+                                            <li  class="page-item"><a class="page-link" href="#">{{pages}}</a></li>
+                                        {% else %}
+                                            <li  class="page-item"><a class="page-link" href="?page={{pages}}">{{pages}}</a></li>
+                                        {% endif %}
+                                        
+                                    {% endfor %}
+                                        
+                                    
+                                    {% if projectlist.has_next %}
+                                        <li  class="page-item"><a class="page-link" href="?page={{ project_list.next_page_number }}">Next</a></li>
+                                    {% else %}
+                                        <li class="disabled"></li>
+                                    {% endif %}
+                                    
+                                </ul>
+
+                            {% endif %}
+
+                </nav>
+                            </div>
+    
+        </div>
